@@ -1,2 +1,2 @@
 # Scully
-> The Podcast Detective
+> :mag: The Podcast Detective
