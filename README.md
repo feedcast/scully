@@ -1,3 +1,5 @@
+![Dana](https://github.com/feedcast/scully/raw/master/docs/logo.png "Dana")
+
 # Scully
 > :mag: The Podcast Detective
 
