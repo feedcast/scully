@@ -1,0 +1,7 @@
+# IntelliJ
+.idea/
+
+# Compiler Cache
+classes/
+target/
+project/target
