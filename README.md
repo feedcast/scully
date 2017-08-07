@@ -1,6 +1,6 @@
 ![Dana](https://github.com/feedcast/scully/raw/master/docs/logo.png "Dana")
 
-# Scully
+# Scully [![Build Status](https://travis-ci.org/feedcast/scully.svg?branch=master)](https://travis-ci.org/feedcast/scully)
 > :mag: The Podcast Detective
 
 ## Introduction
