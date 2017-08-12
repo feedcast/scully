@@ -4,7 +4,7 @@ import org.scalatest.{FunSpec, Matchers}
 import com.twitter.finagle.http.Status
 import io.finch.Input
 import io.feedcast.scully.api.IndexApi
-import io.feedcast.scully.models.{Document, Episode}
+import io.feedcast.scully.models.Document
 import io.feedcast.scully.services.IndexService
 
 class DummyIndexService extends IndexService {
@@ -14,8 +14,8 @@ class DummyIndexService extends IndexService {
 class IndexApiSpec extends FunSpec with Matchers {
   val index = new IndexApi(new DummyIndexService).endpoints
 
-  val validEpisode = Input.put("/index/episode").withBody(Episode("a23", "foo").toJson)
-  val invalidEpisode = Input.put("/index/episode").withBody("invalid")
+  val validEpisode = Input.put("/index").withBody(Document("a23", "foo", "foo").toJson)
+  val invalidEpisode = Input.put("/index").withBody("invalid")
 
   describe("PUT /index") {
     describe("when an valid document is given") {

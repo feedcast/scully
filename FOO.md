@@ -1,0 +1,11 @@
+ - Connection with ES
+ - PUT
+ - GET
+ - Pagination
+ - Entries per page
+ - Cache (Headers for browser)
+------------------
+TODO--
+- parse URL from String
+- Create a Client abstraction?
+- create the full sear

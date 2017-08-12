@@ -6,12 +6,12 @@ import io.finch._
 import io.finch.circe._
 import io.circe._
 import io.circe.generic.auto._
-import io.feedcast.scully.models.Episode
+import io.feedcast.scully.models.Document
 import io.finch.Error.NotParsed
 
-class IndexApi(searchService: IndexService) {
-  val indexEpisode: Endpoint[Unit] = put("index" :: "episode" :: jsonBody[Episode]) { episode: Episode =>
-    searchService.index(episode)
+class IndexApi(indexService: IndexService) {
+  val indexEpisode: Endpoint[Unit] = put("index" :: jsonBody[Document]) { document: Document =>
+    indexService.index(document)
 
     Output.empty(Status.Accepted)
   } handle {
