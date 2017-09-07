@@ -36,4 +36,22 @@ responses:
 
 To setup external dependencies use: `make compose`.
 
-That will run Elastic Search on `127.0.0.1:9200` with Docker Compose.
+That will run Elastic Search on `localhost:9200` with Docker Compose.
+
+### Build
+
+To install the libraries and compile: `make build`.
+
+That will run SBT compile stage.
+
+### Start
+
+To start the application run: `make start`.
+
+That will start the server at `localhost:2024` by default.
+
+#### Environment
+> Environment variables available to configure
+
+* **PORT** - HTTP server PORT, default: `2024`.
+* **ELASTIC_SEARCH_URL** - The Elastic Search URL, default: `elasticsearch://elastic:changeme@localhost:9200/`.
