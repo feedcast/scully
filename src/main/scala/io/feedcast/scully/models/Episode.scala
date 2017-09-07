@@ -1,11 +1,33 @@
 package io.feedcast.scully.models
 
+import com.sksamuel.elastic4s.{Hit, HitReader}
 import io.circe.generic.auto._
 import io.circe.syntax._
 
-case class Episode(uuid: String, title: String) extends Document {
-  override val _type = "episode"
+case class Episode(uuid: String, title: String) {
+  val index = "documents"
+  val `type` = "episode"
 
-  override def id: String = { this.uuid }
-  override def toJson: String = { this.asJson.toString }
+  def id: String = {
+    this.uuid
+  }
+
+  def _type: String = {
+    this.`type`
+  }
+
+  def toJson: String = {
+    this.asJson.toString
+  }
+}
+
+object EpisodeHitHeader extends HitReader[Episode] {
+  override def read(hit: Hit): Either[Throwable, Episode] = {
+    Right(
+      Episode(
+        hit.sourceAsMap("uuid").toString,
+        hit.sourceAsMap("title").toString
+      )
+    )
+  }
 }
