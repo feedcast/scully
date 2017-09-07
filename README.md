@@ -29,3 +29,11 @@ where:
 responses:
 * 202 - Accepted with an empty body if everything goes well
 * 400 - Bad request if the given attributes are not properly given
+
+## Setup
+
+### Dependencies
+
+To setup external dependencies use: `make compose`.
+
+That will run Elastic Search on `127.0.0.1:9200` with Docker Compose.
