@@ -4,11 +4,11 @@ import org.scalatest.{FunSpec, Matchers}
 import com.twitter.finagle.http.Status
 import io.finch.Input
 import io.feedcast.scully.api.IndexApi
-import io.feedcast.scully.models.{Document, Episode}
+import io.feedcast.scully.models.Episode
 import io.feedcast.scully.services.IndexService
 
 class DummyIndexService extends IndexService {
-  def index(document: Document) { }
+  def index(episode: Episode) { }
 }
 
 class IndexApiSpec extends FunSpec with Matchers {

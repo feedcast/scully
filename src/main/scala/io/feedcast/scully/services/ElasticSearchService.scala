@@ -4,14 +4,14 @@ import java.net.{URI, URL}
 
 import com.sksamuel.elastic4s.ElasticsearchClientUri
 import com.sksamuel.elastic4s.http.HttpClient
-import io.feedcast.scully.models.Document
+import io.feedcast.scully.models.{Episode, EpisodeHitHeader}
 import org.apache.http.auth.{AuthScope, UsernamePasswordCredentials}
 import org.apache.http.client.config.RequestConfig.Builder
 import org.apache.http.impl.client.BasicCredentialsProvider
 import org.apache.http.impl.nio.client.HttpAsyncClientBuilder
 import org.elasticsearch.client.RestClientBuilder.{HttpClientConfigCallback, RequestConfigCallback}
 
-class ElasticSearchService(uri: URI) extends IndexService {
+class ElasticSearchService(uri: URI) extends IndexService with SearchService {
   import com.sksamuel.elastic4s.http.ElasticDsl._
 
   lazy val connectionUri = ElasticsearchClientUri(uri.getHost, uri.getPort)
@@ -30,9 +30,17 @@ class ElasticSearchService(uri: URI) extends IndexService {
   }
   val client = HttpClient(connectionUri, connectionRequestConfigCallback, connectionAuthCallback )
 
-  def index(document : Document) = {
+  def index(episode : Episode) = {
     client.execute {
-      indexInto(document._index / document._type).doc(document.toJson) id document.id
+      indexInto(episode.index / episode.`type`).doc(episode.toJson) id episode.id
     }.await
+  }
+
+  def searchFor(query: String): List[Episode] = {
+    val response = client.execute {
+      search("documents" / "episode") query(query) limit(100)
+    }.await
+
+    response.to[Episode](EpisodeHitHeader).toList
   }
 }

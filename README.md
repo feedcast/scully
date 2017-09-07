@@ -15,7 +15,8 @@ The name, Scully, is a reference of the X-Files character [Dana Scully](https://
 > Index an episode
 
 body:
-```
+
+```javascript
 {
   "uuid": "a23b7-1238d-92kdj7",
   "title": "I want to believe"
@@ -29,6 +30,26 @@ where:
 responses:
 * 202 - Accepted with an empty body if everything goes well
 * 400 - Bad request if the given attributes are not properly given
+
+#### GET /?query=:query
+> Search for episodes
+
+params:
+* query - Search query
+
+response:
+* 200 - OK with an array of episodes in the response body
+body:
+
+```javascript
+[
+  {
+    "uuid": "a23b7-1238d-92kdj7",
+    "title": "I want to believe"
+  },
+  ...
+]
+```
 
 ## Setup
 
