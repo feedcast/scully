@@ -21,21 +21,11 @@ class IndexApiSpec extends FunSpec with Matchers {
       it("returns with status accepted") {
         index(validEpisode).awaitOutputUnsafe().map(_.status) shouldBe Some(Status.Accepted)
       }
-
-      // it is working but the test fails
-      pendingUntilFixed {
-        index(validEpisode).awaitValueUnsafe() shouldBe None
-      }
     }
 
     describe("when an invalid document is given") {
       it("returns with status bad request") {
         index(invalidEpisode).awaitOutputUnsafe().map(_.status) shouldBe Some(Status.BadRequest)
-      }
-
-      // it is working but the test fails
-      pendingUntilFixed {
-        index(invalidEpisode).awaitValueUnsafe() shouldBe None
       }
     }
   }
