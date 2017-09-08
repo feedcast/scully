@@ -65,6 +65,10 @@ To install the libraries and compile: `make build`.
 
 That will run SBT compile stage.
 
+### Test
+
+To run the tests: `make test`.
+
 ### Start
 
 To start the application run: `make start`.

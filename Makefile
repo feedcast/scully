@@ -6,6 +6,10 @@ start:
 build:
 	sbt compile stage
 
+.PHONY: test
+test:
+	sbt test
+
 .PHONY: compose
 compose:
 	docker-compose up -d
