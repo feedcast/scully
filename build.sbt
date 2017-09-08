@@ -30,3 +30,4 @@ libraryDependencies ++= Seq(
 )
 
 enablePlugins(JavaAppPackaging)
+enablePlugins(NewRelic)
