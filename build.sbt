@@ -8,6 +8,7 @@ lazy val versions = new {
   val circe = "0.8.0"
   val elastic = "5.4.10"
   val test = "3.0.0"
+  val log = "1.7.12"
 }
 
 resolvers ++= Seq(
@@ -23,6 +24,8 @@ libraryDependencies ++= Seq(
   "com.sksamuel.elastic4s" %% "elastic4s-core" % versions.elastic,
   "com.sksamuel.elastic4s" %% "elastic4s-http" % versions.elastic,
   "com.sksamuel.elastic4s" %% "elastic4s-circe" % versions.elastic,
+
+  "org.slf4j" % "slf4j-simple" % versions.log,
 
   "org.scalatest" %% "scalatest" % versions.test % "test",
   "com.sksamuel.elastic4s" %% "elastic4s-core" % versions.elastic % "test",
