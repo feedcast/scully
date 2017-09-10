@@ -1,6 +1,7 @@
 package io.feedcast.scully.api
 
 import com.twitter.finagle.http.Status
+import com.twitter.util.FuturePool
 import io.finch._
 import io.finch.circe._
 import io.circe._
@@ -11,7 +12,9 @@ import io.feedcast.scully.models.Episode
 
 class IndexApi(searchService: IndexService) {
   val indexEpisode: Endpoint[Unit] = put("index" :: "episode" :: jsonBody[Episode]) { episode: Episode =>
-    searchService.index(episode)
+    FuturePool.unboundedPool {
+      searchService.index(episode)
+    }
 
     Output.empty(Status.Accepted)
   } handle {
