@@ -16,14 +16,14 @@ class IndexApiSpec extends FunSpec with Matchers {
   val validEpisode = Input.put("/index/episode").withBody(Episode("a23", "foo").toJson)
   val invalidEpisode = Input.put("/index/episode").withBody("invalid")
 
-  describe("PUT /index") {
-    describe("when an valid document is given") {
+  describe("PUT /index/episode") {
+    describe("when an valid episode is given") {
       it("returns with status accepted") {
         index(validEpisode).awaitOutputUnsafe().map(_.status) shouldBe Some(Status.Accepted)
       }
     }
 
-    describe("when an invalid document is given") {
+    describe("when an invalid episode is given") {
       it("returns with status bad request") {
         index(invalidEpisode).awaitOutputUnsafe().map(_.status) shouldBe Some(Status.BadRequest)
       }
