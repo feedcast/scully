@@ -21,13 +21,17 @@ body:
   "uuid": "a23b7-1238d-92kdj7",
   "path": "/x-files/01-pilot",
   "title": "I want to believe",
+  "summary": "Foo",
+  "description": "Bar",
 }
 ```
 
 where:
-* uuid - Unique identifier of the document
-* path - URL path for the resource on the front-end
-* title - Title of the document
+* uuid - Unique identifier of the episode
+* path - URL path for the episode on the front-end
+* title - Title of the episode
+* summary - Summary of the episode
+* description - Description of the episode
 
 responses:
 * 202 - Accepted with an empty body if everything goes well
@@ -49,6 +53,8 @@ body:
     "uuid": "a23b7-1238d-92kdj7",
     "path": "/x-files/01-pilot",
     "title": "I want to believe",
+    "summary": "Foo",
+    "description": "Bar",
   },
   ...
 ]
