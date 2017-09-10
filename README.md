@@ -19,12 +19,14 @@ body:
 ```javascript
 {
   "uuid": "a23b7-1238d-92kdj7",
-  "title": "I want to believe"
+  "path": "/x-files/01-pilot",
+  "title": "I want to believe",
 }
 ```
 
 where:
 * uuid - Unique identifier of the document
+* path - URL path for the resource on the front-end
 * title - Title of the document
 
 responses:
@@ -45,7 +47,8 @@ body:
 [
   {
     "uuid": "a23b7-1238d-92kdj7",
-    "title": "I want to believe"
+    "path": "/x-files/01-pilot",
+    "title": "I want to believe",
   },
   ...
 ]
