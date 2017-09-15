@@ -13,7 +13,7 @@ class DummyIndexService extends IndexService {
 
 class IndexApiSpec extends FunSpec with Matchers {
   val index = new IndexApi(new DummyIndexService).endpoints
-  val validEpisode = Input.put("/index/episode").withBody(Episode("a23", "/foo/bar", "foo", Option(""), None).toJson)
+  val validEpisode = Input.put("/index/episode").withBody(Episode("a23", "/foo/bar", "foo", Option(""), Option(""), None).toJson)
   val invalidEpisode = Input.put("/index/episode").withBody("invalid")
 
   describe("PUT /index/episode") {

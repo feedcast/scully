@@ -10,8 +10,8 @@ import io.feedcast.scully.services.SearchService
 class DummySearchService extends SearchService {
   def searchFor(query: String): List[Episode] = {
     List(
-      Episode("a23", "/foo/bar", "Jungle", Option(""), Option("")),
-      Episode("a24", "/foo/bar2", "Jungle 2", Option(""), Option(""))
+      Episode("a23", "/foo/bar", "Jungle", Option(""), Option(""), Option("")),
+      Episode("a24", "/foo/bar2", "Jungle 2", Option(""), Option(""), Option(""))
     )
   }
 }
@@ -29,8 +29,8 @@ class SearchApiSpec extends FunSpec with Matchers {
       search(validSearch).awaitValue().map(_.get) shouldBe
         Some(
           List(
-            Episode("a23", "/foo/bar", "Jungle", Option(""), Option("")),
-            Episode("a24", "/foo/bar2", "Jungle 2", Option(""), Option(""))
+            Episode("a23", "/foo/bar", "Jungle", Option(""), Option(""), Option("")),
+            Episode("a24", "/foo/bar2", "Jungle 2", Option(""), Option(""), Option(""))
           )
         )
     }
